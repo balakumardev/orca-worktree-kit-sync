@@ -1,0 +1,47 @@
+{
+  "manifestVersion": 2,
+  "id": "worktree-kit-sync",
+  "name": "Worktree Kit Sync",
+  "version": "0.2.0",
+  "description": "Copies your gitignored local files (CLAUDE.md, .claude, .mcp.json, .env, anything you list) into every new worktree, in every repo, before the agent starts.",
+  "author": {
+    "name": "Bala Kumar",
+    "url": "https://github.com/balakumardev"
+  },
+  "repository": "https://github.com/balakumardev/orca-worktree-kit-sync",
+  "license": "MIT",
+  "engines": {
+    "orca": ">=1.4.248"
+  },
+  "execution": "trusted-worker",
+  "pluginApi": 1,
+  "main": "src/worker.ts",
+  "capabilities": [{ "kind": "workspace:read" }, { "kind": "settings:own" }],
+  "contributes": {
+    "events": [{ "on": "workspace.created" }],
+    "hooks": [
+      { "event": "workspace.create.after", "onError": "pass" },
+      { "event": "agent.launch.before", "onError": "pass" }
+    ],
+    "settings": [
+      {
+        "key": "paths",
+        "title": "Files and folders to copy",
+        "description": "One per line, relative to the repo root; # starts a comment. Only files git sees as untracked or ignored are copied, and a file that already exists in the worktree is never overwritten. Clear the box to turn copying off.",
+        "type": "string",
+        "multiline": true,
+        "maxLength": 4000,
+        "default": "AGENTS.md\nCLAUDE.md\nGEMINI.md\n.mcp.json\n.cursorrules\n.cursorignore\n.cursor/mcp.json\n.claude\n.run\n.ai\n.codex\n.augment"
+      },
+      {
+        "key": "maxMegabytes",
+        "title": "Size limit (MB)",
+        "description": "If the files to copy add up to more than this, nothing is copied and a line is written to the plugin log.",
+        "type": "integer",
+        "default": 50,
+        "minimum": 1,
+        "maximum": 2048
+      }
+    ]
+  }
+}
