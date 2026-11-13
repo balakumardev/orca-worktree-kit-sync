@@ -1,6 +1,6 @@
 # Worktree Kit Sync
 
-An [Orca](https://onorca.dev) plugin that copies your local, untracked files into every new worktree: `CLAUDE.md`, `AGENTS.md`, `.mcp.json`, `.claude/`, `.env`, or anything else you list. It works in every repo with nothing to set up per repo, and the files are in place before the agent starts.
+An [Orca](https://onorca.dev) plugin that copies your local, untracked files into every new worktree: `CLAUDE.md`, `AGENTS.md`, `.mcp.json`, `.claude/`, or anything else you list (`.env` too, if you add it). It works in every repo with nothing to set up per repo, and the files are in place before the agent starts.
 
 ## Why
 
