@@ -3,7 +3,7 @@
   "id": "worktree-kit-sync",
   "name": "Worktree Kit Sync",
   "version": "0.2.0",
-  "description": "Copies your gitignored local files (CLAUDE.md, .claude, .mcp.json, .env, anything you list) into every new worktree, in every repo, before the agent starts.",
+  "description": "Copies your gitignored local files (CLAUDE.md, .claude, .mcp.json, or anything you list, such as .env) into every new worktree, in every repo, before the agent starts.",
   "author": {
     "name": "Bala Kumar",
     "url": "https://github.com/balakumardev"
